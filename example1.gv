@@ -1,0 +1,71 @@
+digraph A {
+	graph [
+		layout=fdp
+		outputorder=edgesfirst
+		clusterrank=local
+		overlap="20:"
+		splines=true
+	]
+
+	node [
+		shape=box
+		style="filled,rounded"
+		fillcolor="red:white"
+		gradientangle=270
+		color=gray
+	]
+	
+	edge [
+		color=gray
+		penwidth=0.8
+		arrowhead=open
+	]
+	
+	
+	a1	->	b1
+	a1	->	a3
+	b2	->	B
+	b3	->	B
+	b4	->	B
+	b5	->	B
+	b6	->	B
+	b6	->	b19
+	B	->	b7
+	B	->	b10
+	B	->	b16
+	a2	->	b10
+	a3	->	b10 [penwidth=1]
+	a4	->	b10 [penwidth=1.5]
+	a5	->	b10 [penwidth=3 color="red;0.5:blue"]
+	a6	->	b10
+	a7	->	b10
+	a8	->	b16
+	a9	->	b17
+	a10	->	b18
+	a10	->	b5
+	a11	->	b19
+	a12	->	b20
+	b18 -> a5
+	b1 -> b19
+	b19 -> a10
+	a9 -> a5
+	a12 -> b18
+	b20 -> a2
+	
+	subgraph clusterWtf {
+		graph [
+			label="Wtf?"
+			bgcolor="orange:white"
+			gradientangle=90
+			style=rounded
+			color=gray
+		]
+		
+		b2
+		b3
+		b4
+		b5
+		b6
+	}
+}
+
