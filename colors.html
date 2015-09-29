@@ -1,0 +1,25 @@
+<style>
+div {width: 50px; height: 50px; display: inline-block;}
+</style>
+
+<script>
+function _(string) {
+	document.write(string);
+}
+function box(hue) {
+	var color = 'hsl(' + hue + ', 100%, 50%)';
+	_('<div style="background: ' + color + '"></div>');
+}
+function br() {
+	_('<br>');
+}
+for (var i=5, iMax=12; i <= iMax; i = i + 1) {
+	for (var k=300, kMax=360; k <=kMax; k+=6) {
+		for (var j=0, jMax=k; j < jMax; j = j + (jMax/i)) {
+			box(j);
+		}
+		_(i + ' ' + k);
+		br();
+	}
+}
+</script>
