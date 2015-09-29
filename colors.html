@@ -1,14 +1,14 @@
 <style>
-div {width: 50px; height: 50px; display: inline-block;}
+div {width: 150px; height: 50px; display: inline-block;}
 </style>
 
 <script>
 function _(string) {
 	document.write(string);
 }
-function box(hue) {
-	var color = 'hsl(' + hue + ', 100%, 50%)';
-	_('<div style="background: ' + color + '" title="' + hue + '"></div>');
+function box(hue, saturation, lightness) {
+	var color = 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)';
+	_('<div style="background: ' + color + '" title="color: ' + color + '">' + color + '</div>');
 }
 function br() {
 	_('<br>');
@@ -24,8 +24,19 @@ var colors = [
 	{name: 'magenta', hue: 300}
 ];
 
-for (var i = 0, iMax = colors.length; i < iMax; i++) {
-	var color = colors[i];
-	box(color.hue);
+var lightnessSaturations = [
+	{lightness: 50, saturation: 60},
+	{lightness: 50, saturation: 100},
+	{lightness: 80, saturation: 100},
+	{lightness: 80, saturation: 60},
+];
+
+for (var ls = 0, lsMax = lightnessSaturations.length; ls <= lsMax; ls++) {
+for (var h = 0, hMax = colors.length; h < hMax; h++) {
+	var color = colors[h],
+		lightnessSaturation = lightnessSaturations[ls];
+	box(color.hue, lightnessSaturation.saturation, lightnessSaturation.lightness);
+}
+br();
 }
 </script>
