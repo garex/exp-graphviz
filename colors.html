@@ -1,5 +1,5 @@
 <style>
-div {width: 14px; height: 14px; display: inline-block;}
+div {width: 50px; height: 50px; display: inline-block;}
 </style>
 
 <script>
@@ -13,13 +13,19 @@ function box(hue) {
 function br() {
 	_('<br>');
 }
-for (var i=5, iMax=12; i <= iMax; i = i + 1) {
-	for (var k=300, kMax=360; k <=kMax; k+=6) {
-		for (var j=0, jMax=k; j < jMax; j = Math.round(j + (jMax/i))) {
-			box(j);
-		}
-		_(' ' + i + ' ' + k);
-		br();
-	}
+
+var colors = [
+	{name: 'red', hue: 0},
+	{name: 'orange', hue: 39},
+	{name: 'yellow', hue: 60},
+	{name: 'lime', hue: 120},
+	{name: 'cyan', hue: 180},
+	{name: 'blue', hue: 240},
+	{name: 'magenta', hue: 300}
+];
+
+for (var i = 0, iMax = colors.length; i < iMax; i++) {
+	var color = colors[i];
+	box(color.hue);
 }
 </script>
